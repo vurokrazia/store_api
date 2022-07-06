@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   scope '(:locale)', locale: /es|en/ do 
     get 'home/grettings'
     root 'home#grettings'
@@ -13,6 +15,6 @@ Rails.application.routes.draw do
         #"v1/products/:product_id/restore"
         post 'restore'
       end
-    end
+    end 
   end
 end
